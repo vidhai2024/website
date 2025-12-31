@@ -12,7 +12,7 @@ const Vision = () => {
   const backgroundOpacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
   const textY = useTransform(scrollYProgress, [0.3, 0.5], [50, 0]);
 
-  const visionText = "We believe the next leap in AI won't come from scaling existing paradigms, but from fundamental breakthroughs in how systems learn, reason, and adapt.";
+  const visionText = "Innovation thrives when founders are supported early, guided thoughtfully, and connected meaningfully.";
   const words = visionText.split(' ');
 
   return (
@@ -42,7 +42,7 @@ const Vision = () => {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-sm uppercase tracking-widest text-primary font-medium">Our Vision</span>
+          <span className="text-sm uppercase tracking-widest text-primary font-medium">Our Belief</span>
         </motion.div>
 
         {/* Large Typography Quote */}
@@ -55,7 +55,7 @@ const Vision = () => {
               <motion.span
                 key={index}
                 className={`inline-block mr-[0.25em] ${
-                  word === 'breakthroughs' || word === 'learn,' || word === 'reason,' || word === 'adapt.'
+                  word === 'founders' || word === 'early,' || word === 'thoughtfully,' || word === 'meaningfully.'
                     ? 'text-gradient'
                     : ''
                 }`}
@@ -88,32 +88,37 @@ const Vision = () => {
           />
         </motion.div>
 
-        {/* Mission Statement */}
+        {/* Investment Strategy */}
         <motion.div
-          className="mt-16 grid md:grid-cols-2 gap-12"
+          className="mt-16 grid md:grid-cols-3 gap-12"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
           <div>
-            <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Our Mission</h3>
+            <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Early-Stage Focus</h3>
             <p className="text-muted-foreground leading-relaxed">
-              To build the foundational infrastructure that enables AI systems to operate safely, 
-              efficiently, and autonomously—accelerating human progress while maintaining alignment 
-              with human values.
+              We invest at the earliest stages, where the need for structured support is highest 
+              and the potential for outsized impact and returns is greatest.
             </p>
           </div>
           <div>
-            <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Our Approach</h3>
+            <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Founder-First Philosophy</h3>
             <p className="text-muted-foreground leading-relaxed">
-              We combine rigorous theoretical research with practical engineering, publishing openly 
-              while building production-ready systems. Safety isn't an afterthought—it's embedded 
-              in every layer of our architecture.
+              Great founders build great companies. We prioritize teams with grit, clarity of vision, 
+              and strong execution capabilities—often over product maturity.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display text-xl font-semibold mb-4 text-foreground">High-Value Partnerships</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Through strategic collaborations and ecosystem partnerships, we help startups validate 
+              ideas, pilot solutions, and scale faster.
             </p>
           </div>
         </motion.div>
 
-        {/* Team Attribution */}
+        {/* Impact Statement */}
         <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0 }}
@@ -121,7 +126,8 @@ const Vision = () => {
           transition={{ delay: 1.5 }}
         >
           <p className="text-sm text-muted-foreground">
-            Founded by researchers from <span className="text-foreground">DeepMind</span>, <span className="text-foreground">OpenAI</span>, and <span className="text-foreground">MIT CSAIL</span>
+            By nurturing <span className="text-foreground">young entrepreneurs</span> and <span className="text-foreground">disruptive ideas</span>, 
+            we aim to create long-term value for founders, partners, and the ecosystem at large.
           </p>
         </motion.div>
       </div>

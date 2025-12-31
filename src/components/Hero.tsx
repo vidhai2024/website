@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,8 +15,8 @@ const Hero = () => {
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
-  const headlineWords = "Engineering the Future of Autonomous Intelligence".split(' ');
-  const subheadline = "We're building the foundational infrastructure for next-generation AI systems that learn, adapt, and evolve beyond human supervision.";
+  const headlineWords = "Seeding young entrepreneurs & disruptive ideas".split(' ');
+  const subheadline = "We explore, identify, and support founders building ideas that truly matter—driven by passion, purpose, and those defining 'Aha!' moments. Vidhai exists to empower early-stage innovators with the right ecosystem to turn bold ideas into scalable ventures.";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -57,22 +57,6 @@ const Hero = () => {
         className="relative z-10 max-w-6xl mx-auto px-6 text-center"
         style={{ y: heroY, scale: heroScale }}
       >
-        {/* Badge */}
-        <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 mb-8"
-          initial={{ opacity: 0, y: 20, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          >
-            <Sparkles className="w-4 h-4 text-primary" />
-          </motion.div>
-          <span className="text-sm font-medium text-primary">Pioneering Deep Tech Research</span>
-        </motion.div>
-
         {/* Main Headline */}
         <motion.h1
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-8"
@@ -84,7 +68,7 @@ const Hero = () => {
             <motion.span
               key={index}
               className={`inline-block mr-[0.3em] ${
-                word === 'Autonomous' || word === 'Intelligence' 
+                word === 'entrepreneurs' || word === 'disruptive' 
                   ? 'text-gradient' 
                   : 'text-foreground'
               }`}
@@ -98,7 +82,7 @@ const Hero = () => {
 
         {/* Subheadline */}
         <motion.p
-          className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-12"
+          className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -114,7 +98,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1 }}
         >
           <Button variant="hero" size="xl" className="group">
-            <span>Explore Our Technology</span>
+            <span>Apply for Funding</span>
             <motion.div
               className="ml-2"
               animate={{ x: [0, 5, 0] }}
@@ -125,7 +109,7 @@ const Hero = () => {
           </Button>
           
           <Button variant="heroOutline" size="xl">
-            Read Our Research
+            Learn About Vidhai
           </Button>
         </motion.div>
 
@@ -137,9 +121,9 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           {[
-            { value: '$120M', label: 'Research Funding' },
-            { value: '47', label: 'Published Papers' },
-            { value: '12', label: 'Patent Applications' },
+            { value: '50+', label: 'Startups Supported' },
+            { value: '100+', label: 'Founders Mentored' },
+            { value: '₹10Cr+', label: 'Funding Facilitated' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
