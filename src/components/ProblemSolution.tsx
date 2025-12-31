@@ -1,52 +1,46 @@
 import { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { AlertTriangle, Zap, Shield, Brain, Network, Cpu } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { Target, Lightbulb, Rocket, Users, TrendingUp, Handshake } from 'lucide-react';
 
-const problems = [
+const whyVidhai = [
   {
-    icon: AlertTriangle,
-    title: 'Fragile AI Systems',
-    description: 'Current AI breaks under distribution shift. Models trained on historical data fail catastrophically when reality changes.',
+    icon: Target,
+    title: 'Identify What Matters',
+    description: 'We explore and identify founders and their ideas that matter—not just in outcome, but in spirit. Every meaningful startup begins with a moment of insight.',
   },
   {
-    icon: Zap,
-    title: 'Unsustainable Compute',
-    description: 'Training frontier models requires exponentially more compute. The current paradigm is economically and environmentally untenable.',
+    icon: Lightbulb,
+    title: 'Deep Conviction',
+    description: 'We believe in backing teams with grit, clarity of vision, and strong execution capabilities—often over product maturity or early metrics.',
   },
   {
-    icon: Shield,
-    title: 'Alignment Uncertainty',
-    description: 'We cannot reliably ensure AI systems pursue intended objectives. Misalignment risk scales with capability.',
+    icon: Rocket,
+    title: 'Springboard for Growth',
+    description: 'We function as a springboard for early-stage startups by providing structured support, curated access, and specialized tools.',
   },
 ];
 
-const solutions = [
+const whatWeDo = [
   {
-    icon: Brain,
-    title: 'Adaptive Learning Core',
-    description: 'Self-modifying architectures that continuously learn and adapt without catastrophic forgetting.',
+    icon: Users,
+    title: 'Founder Enablement',
+    description: 'Product sessions, workshops, and structured training programs with one-on-one and group mentorship from experienced founders.',
   },
   {
-    icon: Network,
-    title: 'Efficient Neural Synthesis',
-    description: 'Novel compression and distillation techniques achieving 100x compute efficiency.',
+    icon: TrendingUp,
+    title: 'Growth & Investor Readiness',
+    description: 'Pitch practice, storytelling refinement, direct investor access, cloud credits, and startup tooling support.',
   },
   {
-    icon: Cpu,
-    title: 'Verified Alignment Protocol',
-    description: 'Formal verification methods ensuring behavioral bounds with mathematical guarantees.',
+    icon: Handshake,
+    title: 'Ecosystem & Capital',
+    description: 'Follow-on funding support, industry collaborations, hackathons, innovation sprints, and co-founder matching.',
   },
 ];
 
 const ProblemSolution = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
     <section ref={sectionRef} className="relative py-32 overflow-hidden">
@@ -54,7 +48,7 @@ const ProblemSolution = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
-        {/* Problem Section */}
+        {/* Why Vidhai Section */}
         <motion.div
           className="mb-24"
           initial={{ opacity: 0 }}
@@ -67,47 +61,45 @@ const ProblemSolution = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-sm uppercase tracking-widest text-destructive font-medium">The Problem</span>
+            <span className="text-sm uppercase tracking-widest text-primary font-medium">Why Vidhai?</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 text-foreground">
-              AI Development Has Hit a Wall
+              Building with Clarity & Vision
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-              The current generation of AI systems face fundamental limitations that scaling alone cannot solve.
+              At Vidhai, we don't just accelerate startups—we help founders build with clarity, confidence, and long-term vision.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {problems.map((problem, index) => (
+            {whyVidhai.map((item, index) => (
               <motion.div
-                key={problem.title}
-                className="group relative p-8 rounded-2xl bg-card/50 border border-border hover:border-destructive/50 transition-all duration-500 card-lift"
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                key={item.title}
+                className="group relative p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/50 transition-all duration-500 card-lift gradient-border"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               >
                 {/* Glow effect on hover */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
-                    background: 'radial-gradient(circle at center, hsl(0 84% 60% / 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle at center, hsl(358 87% 53% / 0.1) 0%, transparent 70%)',
                   }}
                 />
                 
-                <motion.div
-                  className="relative z-10"
-                >
+                <motion.div className="relative z-10">
                   <motion.div
-                    className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ rotate: 5 }}
                   >
-                    <problem.icon className="w-6 h-6 text-destructive" />
+                    <item.icon className="w-6 h-6 text-primary" />
                   </motion.div>
                   
                   <h3 className="font-display text-xl font-semibold mb-3 text-foreground">
-                    {problem.title}
+                    {item.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    {problem.description}
+                    {item.description}
                   </p>
                 </motion.div>
               </motion.div>
@@ -123,7 +115,7 @@ const ProblemSolution = () => {
           transition={{ delay: 0.6 }}
         >
           <motion.div
-            className="absolute w-px h-full bg-gradient-to-b from-destructive/50 via-primary to-primary/50"
+            className="absolute w-px h-full bg-gradient-to-b from-primary/50 via-primary to-primary/50"
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -142,7 +134,7 @@ const ProblemSolution = () => {
           </motion.div>
         </motion.div>
 
-        {/* Solution Section */}
+        {/* What We Do Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -154,29 +146,29 @@ const ProblemSolution = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 1 }}
           >
-            <span className="text-sm uppercase tracking-widest text-primary font-medium">Our Solution</span>
+            <span className="text-sm uppercase tracking-widest text-primary font-medium">What We Do</span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6 text-foreground">
-              A New Foundation for AI
+              Vidhai's Offerings
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-              We're developing breakthrough technologies that address these challenges at their root.
+              We support founders across the early stages of their startup journey by combining mentorship, capital access, and ecosystem support.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {solutions.map((solution, index) => (
+            {whatWeDo.map((item, index) => (
               <motion.div
-                key={solution.title}
+                key={item.title}
                 className="group relative p-8 rounded-2xl bg-card/50 border border-border hover:border-primary/50 transition-all duration-500 card-lift gradient-border"
-                initial={{ opacity: 0, x: 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
               >
                 {/* Glow effect on hover */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
-                    background: 'radial-gradient(circle at center, hsl(185 100% 50% / 0.1) 0%, transparent 70%)',
+                    background: 'radial-gradient(circle at center, hsl(358 87% 53% / 0.1) 0%, transparent 70%)',
                   }}
                 />
                 
@@ -185,14 +177,14 @@ const ProblemSolution = () => {
                     className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ rotate: -5 }}
                   >
-                    <solution.icon className="w-6 h-6 text-primary" />
+                    <item.icon className="w-6 h-6 text-primary" />
                   </motion.div>
                   
                   <h3 className="font-display text-xl font-semibold mb-3 text-foreground">
-                    {solution.title}
+                    {item.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    {solution.description}
+                    {item.description}
                   </p>
                 </motion.div>
               </motion.div>

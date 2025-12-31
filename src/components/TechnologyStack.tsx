@@ -1,78 +1,78 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Layers, GitBranch, Fingerprint, Database, Lock, Workflow } from 'lucide-react';
+import { BookOpen, Users, Briefcase, Rocket, Award, Network } from 'lucide-react';
 
-const techModules = [
+const offerings = [
   {
-    id: 'neural-core',
-    icon: Layers,
-    title: 'Neural Architecture',
-    subtitle: 'Self-Organizing Networks',
-    description: 'Dynamic neural topologies that evolve during inference, enabling continuous adaptation without retraining.',
-    color: 'hsl(185 100% 50%)',
-    stats: [
-      { label: 'Adaptation Speed', value: '10ms' },
-      { label: 'Memory Efficiency', value: '94%' },
+    id: 'workshops',
+    icon: BookOpen,
+    title: 'Product Sessions',
+    subtitle: 'Founder Enablement',
+    description: 'Structured workshops and training programs designed to sharpen product thinking and execution skills.',
+    color: 'hsl(358 87% 53%)',
+    features: [
+      { label: 'Workshops/Month', value: '8+' },
+      { label: 'Topics Covered', value: '20+' },
     ],
   },
   {
-    id: 'distributed',
-    icon: GitBranch,
-    title: 'Distributed Intelligence',
-    subtitle: 'Federated Learning 2.0',
-    description: 'Privacy-preserving collaborative learning across heterogeneous compute environments.',
-    color: 'hsl(200 100% 60%)',
-    stats: [
-      { label: 'Privacy Score', value: '99.9%' },
-      { label: 'Sync Latency', value: '<5ms' },
+    id: 'mentorship',
+    icon: Users,
+    title: 'Expert Mentorship',
+    subtitle: '1:1 Guidance',
+    description: 'One-on-one and group mentorship from experienced founders, operators, and industry experts.',
+    color: 'hsl(358 87% 60%)',
+    features: [
+      { label: 'Mentors', value: '50+' },
+      { label: 'Sessions', value: 'Unlimited' },
     ],
   },
   {
-    id: 'verification',
-    icon: Fingerprint,
-    title: 'Formal Verification',
-    subtitle: 'Provable Guarantees',
-    description: 'Mathematical proofs ensuring behavioral bounds hold across all possible inputs and states.',
-    color: 'hsl(150 100% 45%)',
-    stats: [
-      { label: 'Coverage', value: '100%' },
-      { label: 'Proof Time', value: '<1hr' },
+    id: 'market-access',
+    icon: Briefcase,
+    title: 'Market Access',
+    subtitle: 'Industry Connections',
+    description: 'Curated introductions to potential customers, partners, and industry stakeholders.',
+    color: 'hsl(358 87% 55%)',
+    features: [
+      { label: 'Partner Network', value: '100+' },
+      { label: 'Industries', value: '15+' },
     ],
   },
   {
-    id: 'knowledge',
-    icon: Database,
-    title: 'Knowledge Substrate',
-    subtitle: 'Persistent Memory',
-    description: 'Hierarchical memory systems enabling lifelong learning with zero catastrophic forgetting.',
-    color: 'hsl(280 100% 60%)',
-    stats: [
-      { label: 'Retention', value: '99.7%' },
-      { label: 'Retrieval', value: '0.3ms' },
+    id: 'demo-days',
+    icon: Award,
+    title: 'Demo Days',
+    subtitle: 'Investor Showcase',
+    description: 'Regular opportunities to showcase your startup to investors and partners in curated events.',
+    color: 'hsl(358 87% 58%)',
+    features: [
+      { label: 'Events/Year', value: '4' },
+      { label: 'Investors', value: '200+' },
     ],
   },
   {
-    id: 'security',
-    icon: Lock,
-    title: 'Adversarial Shield',
-    subtitle: 'Attack Resilience',
-    description: 'Multi-layer defense mechanisms providing robustness against known and novel attack vectors.',
-    color: 'hsl(30 100% 55%)',
-    stats: [
-      { label: 'Attack Block', value: '99.99%' },
-      { label: 'False Positive', value: '<0.01%' },
+    id: 'funding',
+    icon: Rocket,
+    title: 'Funding Support',
+    subtitle: 'Capital Access',
+    description: 'Direct investor access, pitch practice, and follow-on funding support for growth.',
+    color: 'hsl(358 87% 52%)',
+    features: [
+      { label: 'VC Partners', value: '30+' },
+      { label: 'Success Rate', value: '70%' },
     ],
   },
   {
-    id: 'orchestration',
-    icon: Workflow,
-    title: 'Agentic Orchestration',
-    subtitle: 'Multi-Agent Systems',
-    description: 'Coordinated autonomous agents with emergent collaborative behaviors and goal alignment.',
-    color: 'hsl(340 100% 60%)',
-    stats: [
-      { label: 'Agents', value: '1M+' },
-      { label: 'Coherence', value: '98%' },
+    id: 'ecosystem',
+    icon: Network,
+    title: 'Startup Tools',
+    subtitle: 'Ecosystem Support',
+    description: 'Cloud credits, startup tooling, alumni network access, and co-founder matching support.',
+    color: 'hsl(358 87% 57%)',
+    features: [
+      { label: 'Cloud Credits', value: '$100K+' },
+      { label: 'Tools Access', value: '50+' },
     ],
   },
 ];
@@ -89,7 +89,7 @@ const TechnologyStack = () => {
         <motion.div
           className="absolute top-1/4 left-0 w-96 h-96 rounded-full"
           style={{
-            background: 'radial-gradient(circle, hsl(185 100% 50% / 0.05) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, hsl(358 87% 53% / 0.05) 0%, transparent 70%)',
             filter: 'blur(60px)',
           }}
           animate={{
@@ -108,26 +108,26 @@ const TechnologyStack = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-sm uppercase tracking-widest text-primary font-medium">Technology</span>
+          <span className="text-sm uppercase tracking-widest text-primary font-medium">Our Programs</span>
           <h2 className="font-display text-4xl md:text-6xl font-bold mt-4 mb-6">
             <span className="text-foreground">The </span>
-            <span className="text-gradient">Nexus Stack</span>
+            <span className="text-gradient">Vidhai Stack</span>
           </h2>
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-            Six interconnected modules forming a complete platform for building autonomous AI systems.
+            Comprehensive programs designed to help startups validate ideas, strengthen execution, and prepare for growth.
           </p>
         </motion.div>
 
-        {/* Tech Grid */}
+        {/* Offerings Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {techModules.map((module, index) => (
+          {offerings.map((item, index) => (
             <motion.div
-              key={module.id}
+              key={item.id}
               className="group relative rounded-2xl bg-card/30 border border-border overflow-hidden cursor-pointer"
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              onMouseEnter={() => setHoveredId(module.id)}
+              onMouseEnter={() => setHoveredId(item.id)}
               onMouseLeave={() => setHoveredId(null)}
               whileHover={{ 
                 y: -8,
@@ -138,7 +138,7 @@ const TechnologyStack = () => {
               <motion.div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
-                  background: `linear-gradient(135deg, ${module.color}20 0%, transparent 50%, ${module.color}10 100%)`,
+                  background: `linear-gradient(135deg, ${item.color}20 0%, transparent 50%, ${item.color}10 100%)`,
                 }}
               />
               
@@ -146,7 +146,7 @@ const TechnologyStack = () => {
               <motion.div
                 className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
-                  background: `linear-gradient(135deg, ${module.color}40 0%, transparent 40%, transparent 60%, ${module.color}20 100%)`,
+                  background: `linear-gradient(135deg, ${item.color}40 0%, transparent 40%, transparent 60%, ${item.color}20 100%)`,
                   padding: 1,
                   mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                   maskComposite: 'xor',
@@ -159,17 +159,17 @@ const TechnologyStack = () => {
                 <motion.div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300"
                   style={{
-                    background: `${module.color}15`,
+                    background: `${item.color}15`,
                   }}
                   animate={{
-                    rotate: hoveredId === module.id ? [0, 5, -5, 0] : 0,
-                    scale: hoveredId === module.id ? 1.1 : 1,
+                    rotate: hoveredId === item.id ? [0, 5, -5, 0] : 0,
+                    scale: hoveredId === item.id ? 1.1 : 1,
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  <module.icon 
+                  <item.icon 
                     className="w-7 h-7 transition-colors duration-300" 
-                    style={{ color: module.color }}
+                    style={{ color: item.color }}
                   />
                 </motion.div>
 
@@ -177,37 +177,37 @@ const TechnologyStack = () => {
                 <div className="mb-6">
                   <span 
                     className="text-xs font-medium uppercase tracking-wider"
-                    style={{ color: module.color }}
+                    style={{ color: item.color }}
                   >
-                    {module.subtitle}
+                    {item.subtitle}
                   </span>
                   <h3 className="font-display text-xl font-semibold mt-1 text-foreground">
-                    {module.title}
+                    {item.title}
                   </h3>
                   <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
-                    {module.description}
+                    {item.description}
                   </p>
                 </div>
 
-                {/* Stats */}
+                {/* Features */}
                 <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border/50">
-                  {module.stats.map((stat) => (
-                    <div key={stat.label}>
+                  {item.features.map((feature) => (
+                    <div key={feature.label}>
                       <motion.div
                         className="text-2xl font-display font-bold"
-                        style={{ color: module.color }}
+                        style={{ color: item.color }}
                         animate={{
-                          opacity: hoveredId === module.id ? [0.7, 1, 0.7] : 1,
+                          opacity: hoveredId === item.id ? [0.7, 1, 0.7] : 1,
                         }}
                         transition={{
                           duration: 2,
-                          repeat: hoveredId === module.id ? Infinity : 0,
+                          repeat: hoveredId === item.id ? Infinity : 0,
                         }}
                       >
-                        {stat.value}
+                        {feature.value}
                       </motion.div>
                       <div className="text-xs text-muted-foreground mt-1">
-                        {stat.label}
+                        {feature.label}
                       </div>
                     </div>
                   ))}
@@ -216,22 +216,22 @@ const TechnologyStack = () => {
                 {/* Hover expand indicator */}
                 <motion.div
                   className="absolute bottom-4 right-4 w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ background: `${module.color}20` }}
+                  style={{ background: `${item.color}20` }}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{
-                    opacity: hoveredId === module.id ? 1 : 0,
-                    scale: hoveredId === module.id ? 1 : 0.8,
+                    opacity: hoveredId === item.id ? 1 : 0,
+                    scale: hoveredId === item.id ? 1 : 0.8,
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span className="text-xs" style={{ color: module.color }}>→</span>
+                  <span className="text-xs" style={{ color: item.color }}>→</span>
                 </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Connection Lines Visual */}
+        {/* Bottom Note */}
         <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
@@ -239,7 +239,7 @@ const TechnologyStack = () => {
           transition={{ delay: 0.8 }}
         >
           <p className="text-sm text-muted-foreground">
-            All modules interconnected via our proprietary <span className="text-primary">Neural Bus Protocol</span>
+            All programs designed with <span className="text-primary">founder success</span> as the core metric
           </p>
         </motion.div>
       </div>

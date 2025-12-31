@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail, FileText } from 'lucide-react';
+import { ArrowRight, Mail, Calendar } from 'lucide-react';
 
 const FinalCTA = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -19,7 +19,7 @@ const FinalCTA = () => {
         <div 
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
           style={{
-            background: 'radial-gradient(circle, hsl(185 100% 50% / 0.1) 0%, transparent 60%)',
+            background: 'radial-gradient(circle, hsl(358 87% 53% / 0.1) 0%, transparent 60%)',
             filter: 'blur(80px)',
           }}
         />
@@ -47,7 +47,7 @@ const FinalCTA = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="text-sm uppercase tracking-widest text-primary font-medium">
-            Join the Future
+            Start Your Journey
           </span>
         </motion.div>
 
@@ -58,8 +58,8 @@ const FinalCTA = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Ready to Build the Future of{' '}
-          <span className="text-gradient">Autonomous AI</span>?
+          Ready to Build Something{' '}
+          <span className="text-gradient">Meaningful</span>?
         </motion.h2>
 
         {/* Description */}
@@ -69,8 +69,8 @@ const FinalCTA = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          We're looking for exceptional researchers, engineers, and visionaries to help us 
-          push the boundaries of what's possible.
+          We're looking for passionate founders with bold ideas and the determination 
+          to turn them into scalable ventures. Let's build the future together.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -89,7 +89,7 @@ const FinalCTA = () => {
               size="xl"
               className="group pulse-glow"
             >
-              <span>Get Early Access</span>
+              <span>Apply Now</span>
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
@@ -104,8 +104,8 @@ const FinalCTA = () => {
             whileTap={{ scale: 0.98 }}
           >
             <Button variant="heroOutline" size="xl" className="gap-2">
-              <FileText className="w-5 h-5" />
-              <span>View Research Papers</span>
+              <Calendar className="w-5 h-5" />
+              <span>Schedule a Call</span>
             </Button>
           </motion.div>
         </motion.div>
@@ -120,10 +120,10 @@ const FinalCTA = () => {
           <Mail className="w-4 h-4" />
           <span className="text-sm">For partnerships: </span>
           <a 
-            href="mailto:research@nexusai.dev" 
+            href="mailto:hello@vidhai.com" 
             className="text-sm text-primary hover:underline underline-offset-4"
           >
-            research@nexusai.dev
+            hello@vidhai.com
           </a>
         </motion.div>
       </div>
