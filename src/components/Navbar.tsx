@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Home, Lightbulb, Rocket, Users, Mail, Menu, X } from 'lucide-react';
+import vidhaiLogo from '@/assets/vidhai-logo.png';
 
 const navItems = [
   { label: 'Home', href: '#', icon: Home },
@@ -63,29 +64,15 @@ const Navbar = () => {
           {/* Logo */}
           <motion.a
             href="#"
-            className="flex items-center gap-2 md:gap-3"
+            className="flex items-center"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="relative w-8 h-8 md:w-10 md:h-10">
-              <motion.div
-                className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-accent"
-                animate={{
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                }}
-              />
-              <div className="absolute inset-[2px] rounded-lg bg-background flex items-center justify-center">
-                <span className="text-primary font-display font-bold text-base md:text-lg">V</span>
-              </div>
-            </div>
-            <span className="font-display font-semibold text-base md:text-lg text-foreground">
-              Vidhai
-            </span>
+            <img 
+              src={vidhaiLogo} 
+              alt="Vidhai" 
+              className="h-8 md:h-10 w-auto"
+            />
           </motion.a>
 
           {/* Desktop Nav Links */}
