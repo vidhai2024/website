@@ -184,47 +184,6 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Bottom Navigation */}
-      <motion.nav
-        className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <div className="mx-4 mb-4 rounded-2xl bg-background/80 backdrop-blur-xl border border-border/50 px-2 py-2">
-          <div className="flex items-center justify-around">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                className="flex flex-col items-center gap-1 px-4 py-2 text-muted-foreground hover:text-primary transition-colors"
-                whileTap={{ scale: 0.9 }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <item.icon className="w-5 h-5" />
-                </motion.div>
-                <span className="text-[10px] font-medium">{item.label}</span>
-              </motion.a>
-            ))}
-            <motion.a
-              href="#contact"
-              className="flex flex-col items-center gap-1 px-4 py-2 text-primary"
-              whileTap={{ scale: 0.9 }}
-            >
-              <motion.div
-                className="p-2 rounded-full bg-primary"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Mail className="w-4 h-4 text-primary-foreground" />
-              </motion.div>
-            </motion.a>
-          </div>
-        </div>
-      </motion.nav>
     </>
   );
 };

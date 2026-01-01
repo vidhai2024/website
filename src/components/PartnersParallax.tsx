@@ -24,37 +24,37 @@ const PartnersParallax = () => {
   });
 
   // Create horizontal movement based on scroll
-  const x1 = useTransform(scrollYProgress, [0, 1], [0, -400]);
-  const x2 = useTransform(scrollYProgress, [0, 1], [-200, 200]);
+  const x1 = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const x2 = useTransform(scrollYProgress, [0, 1], [-100, 100]);
 
   return (
-    <section ref={containerRef} className="relative py-20 overflow-hidden">
+    <section ref={containerRef} className="relative py-12 md:py-20 overflow-hidden">
       {/* Section Header */}
       <motion.div
-        className="text-center mb-12"
+        className="text-center mb-8 md:mb-12 px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="text-sm uppercase tracking-widest text-primary font-medium">Ecosystem Partners</span>
-        <h3 className="font-display text-2xl md:text-3xl font-bold mt-4 text-foreground">
+        <span className="text-xs md:text-sm uppercase tracking-widest text-primary font-medium">Ecosystem Partners</span>
+        <h3 className="font-display text-xl md:text-3xl font-bold mt-3 md:mt-4 text-foreground">
           Backed by Industry Leaders
         </h3>
       </motion.div>
 
       {/* First Row - moves left */}
       <motion.div
-        className="flex gap-8 mb-8"
+        className="flex gap-3 md:gap-8 mb-4 md:mb-8"
         style={{ x: x1 }}
       >
         {[...partners, ...partners].map((partner, index) => (
           <motion.div
             key={`row1-${index}`}
-            className="flex-shrink-0 px-8 py-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors duration-300"
+            className="flex-shrink-0 px-4 md:px-8 py-2 md:py-4 rounded-lg md:rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors duration-300"
             whileHover={{ scale: 1.05, y: -5 }}
           >
-            <span className="text-lg font-medium text-foreground/80 whitespace-nowrap">
+            <span className="text-xs md:text-lg font-medium text-foreground/80 whitespace-nowrap">
               {partner}
             </span>
           </motion.div>
@@ -63,16 +63,16 @@ const PartnersParallax = () => {
 
       {/* Second Row - moves right */}
       <motion.div
-        className="flex gap-8"
+        className="flex gap-3 md:gap-8"
         style={{ x: x2 }}
       >
         {[...partners.slice().reverse(), ...partners.slice().reverse()].map((partner, index) => (
           <motion.div
             key={`row2-${index}`}
-            className="flex-shrink-0 px-8 py-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors duration-300"
+            className="flex-shrink-0 px-4 md:px-8 py-2 md:py-4 rounded-lg md:rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors duration-300"
             whileHover={{ scale: 1.05, y: -5 }}
           >
-            <span className="text-lg font-medium text-foreground/80 whitespace-nowrap">
+            <span className="text-xs md:text-lg font-medium text-foreground/80 whitespace-nowrap">
               {partner}
             </span>
           </motion.div>
@@ -80,8 +80,8 @@ const PartnersParallax = () => {
       </motion.div>
 
       {/* Fade edges */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
     </section>
   );
 };
