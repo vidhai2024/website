@@ -50,7 +50,7 @@ const Hero = () => {
   return (
     <motion.section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32"
       style={{ opacity: heroOpacity }}
     >
       <motion.div
@@ -59,7 +59,7 @@ const Hero = () => {
       >
         {/* Main Headline */}
         <motion.h1
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-8"
+          className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-6 md:mb-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -80,14 +80,15 @@ const Hero = () => {
           ))}
         </motion.h1>
 
-        {/* Subheadline */}
+        {/* Subheadline - Simplified for mobile */}
         <motion.p
-          className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed mb-12"
+          className="max-w-3xl mx-auto text-base md:text-xl text-muted-foreground leading-relaxed mb-8 md:mb-12 px-2"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          {subheadline}
+          <span className="hidden md:inline">{subheadline}</span>
+          <span className="md:hidden">Empowering early-stage innovators to turn bold ideas into scalable ventures.</span>
         </motion.p>
 
         {/* CTA Buttons */}
@@ -115,31 +116,34 @@ const Hero = () => {
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-20"
+          className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mt-12 md:mt-20"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
           {[
-            { value: '50+', label: 'Startups Supported' },
-            { value: '100+', label: 'Founders Mentored' },
-            { value: '₹10Cr+', label: 'Funding Facilitated' },
+            { value: '50+', label: 'Startups', fullLabel: 'Startups Supported' },
+            { value: '100+', label: 'Founders', fullLabel: 'Founders Mentored' },
+            { value: '₹10Cr+', label: 'Funded', fullLabel: 'Funding Facilitated' },
           ].map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={stat.fullLabel}
               className="text-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
             >
               <motion.div
-                className="text-3xl md:text-4xl font-display font-bold text-gradient mb-2"
+                className="text-2xl md:text-4xl font-display font-bold text-gradient mb-1 md:mb-2"
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
               >
                 {stat.value}
               </motion.div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-xs md:text-sm text-muted-foreground">
+                <span className="md:hidden">{stat.label}</span>
+                <span className="hidden md:inline">{stat.fullLabel}</span>
+              </div>
             </motion.div>
           ))}
         </motion.div>
