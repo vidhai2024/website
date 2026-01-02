@@ -120,10 +120,10 @@ const FinalCTA = () => {
           <Mail className="w-4 h-4" />
           <span className="text-sm">For partnerships: </span>
           <a 
-            href="mailto:hello@vidhai.com" 
+            href="mailto:connect@vidhai.io" 
             className="text-sm text-primary hover:underline underline-offset-4"
           >
-            hello@vidhai.com
+            connect@vidhai.io
           </a>
         </motion.div>
       </div>
