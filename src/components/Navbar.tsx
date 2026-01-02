@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Home, Lightbulb, Rocket, Users, Mail, Menu, X } from 'lucide-react';
+import { Home, Lightbulb, Rocket, Users, Menu, X } from 'lucide-react';
 import vidhaiLogo from '@/assets/vidhai-logo.png';
 
 const navItems = [
-  { label: 'Home', href: '#', icon: Home },
-  { label: 'Vision', href: '#vision', icon: Lightbulb },
-  { label: 'Programs', href: '#technology', icon: Rocket },
-  { label: 'About', href: '#about', icon: Users },
+  { label: 'Home', href: '/', icon: Home, isRoute: true },
+  { label: 'Vision', href: '/#vision', icon: Lightbulb, isRoute: false },
+  { label: 'Programs', href: '/#technology', icon: Rocket, isRoute: false },
+  { label: 'Team', href: '/team', icon: Users, isRoute: true },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
   const { scrollY } = useScroll();
   
   const navBackground = useTransform(
@@ -62,45 +64,57 @@ const Navbar = () => {
           }}
         >
           {/* Logo */}
-          <motion.a
-            href="#"
-            className="flex items-center"
+          <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img 
-              src={vidhaiLogo} 
-              alt="Vidhai" 
-              className="h-8 md:h-10 w-auto"
-            />
-          </motion.a>
+            <Link to="/" className="flex items-center">
+              <img 
+                src={vidhaiLogo} 
+                alt="Vidhai" 
+                className="h-8 md:h-10 w-auto"
+              />
+            </Link>
+          </motion.div>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <span className="relative z-10">{item.label}</span>
+            {navItems.map((item, index) => {
+              const isActive = item.isRoute && location.pathname === item.href;
+              const NavComponent = item.isRoute ? Link : 'a';
+              const navProps = item.isRoute ? { to: item.href } : { href: item.href };
+              
+              return (
                 <motion.div
-                  className="absolute inset-0 rounded-lg bg-secondary/50 opacity-0"
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-                <motion.div
-                  className="absolute bottom-1 left-1/2 h-px bg-primary"
-                  initial={{ width: 0, x: '-50%' }}
-                  whileHover={{ width: '60%' }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
-            ))}
+                  key={item.label}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index, duration: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <NavComponent
+                    {...navProps as any}
+                    className={cn(
+                      "relative px-4 py-2 text-sm font-medium transition-colors duration-300 block",
+                      isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    <span className="relative z-10">{item.label}</span>
+                    <motion.div
+                      className="absolute inset-0 rounded-lg bg-secondary/50 opacity-0"
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    {isActive && (
+                      <motion.div
+                        className="absolute bottom-1 left-1/2 h-px bg-primary w-[60%] -translate-x-1/2"
+                        layoutId="activeNav"
+                      />
+                    )}
+                  </NavComponent>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Desktop CTA Button */}
@@ -152,22 +166,29 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
           >
             <div className="flex flex-col items-center justify-center h-full gap-8 pt-20">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center gap-4 text-2xl font-display font-semibold text-foreground"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ delay: 0.1 * index }}
-                  onClick={() => setMobileMenuOpen(false)}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <item.icon className="w-6 h-6 text-primary" />
-                  {item.label}
-                </motion.a>
-              ))}
+              {navItems.map((item, index) => {
+                const NavComponent = item.isRoute ? Link : 'a';
+                const navProps = item.isRoute ? { to: item.href } : { href: item.href };
+                
+                return (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ delay: 0.1 * index }}
+                  >
+                    <NavComponent
+                      {...navProps as any}
+                      className="flex items-center gap-4 text-2xl font-display font-semibold text-foreground"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <item.icon className="w-6 h-6 text-primary" />
+                      {item.label}
+                    </NavComponent>
+                  </motion.div>
+                );
+              })}
               <motion.button
                 className="mt-8 px-8 py-4 rounded-xl font-medium text-lg bg-primary text-primary-foreground"
                 initial={{ opacity: 0, y: 20 }}
