@@ -1,6 +1,30 @@
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import yourstoryImg from '@/assets/press/yourstory.avif';
+import ssvmImg from '@/assets/press/ssvm-institute.jpg';
+import forbesImg from '@/assets/press/forbes100-vidhai.jpg';
+
+const pressArticles = [
+  {
+    title: "Tamil Nadu-based accelerator Vidhai aims to support startups with tools, funding",
+    image: yourstoryImg,
+    link: "https://yourstory.com/2024/09/tamil-nadu-based-accelerator-vidhai-support-startups-tools-funding",
+    source: "YourStory"
+  },
+  {
+    title: "Trailblazing Tomorrow: Igniting the Spark of Student Startups at SSVM!",
+    image: ssvmImg,
+    link: "https://www.facebook.com/ssvminstitutions2324/posts/trailblazing-tomorrow-igniting-the-spark-of-student-startups-at-ssvma-captivatin/1440066524788634/",
+    source: "SSVM Institute"
+  },
+  {
+    title: "We are proud to share that one of our portfolio companies, Scrapify Ecotech Private Limited from our current cohort has been featured in Forbes India | Top 100 Startups to Watch.",
+    image: forbesImg,
+    link: "https://www.linkedin.com/posts/vidhai-llp_vidhaiaccelerator-startupecosystem-forbesindia-activity-7409507232993730560-i9r6?utm_source=share&utm_medium=member_desktop&rcm=ACoAABRMAJEBdkApQrQ5Bk43Dg5UoPUpQXcgBY8",
+    source: "LinkedIn"
+  }
+];
 
 const Press = () => {
   return (
@@ -8,7 +32,7 @@ const Press = () => {
       <Navbar />
       
       <main className="pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,18 +49,44 @@ const Press = () => {
             </p>
           </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {pressArticles.map((article, index) => (
+              <motion.a
+                key={index}
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-card/50 border border-border/50 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="aspect-video w-full overflow-hidden">
+                  <img 
+                    src={article.image} 
+                    alt={article.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5 md:p-6">
+                  <span className="text-xs uppercase tracking-wider text-primary font-medium">
+                    {article.source}
+                  </span>
+                  <h3 className="font-display text-base md:text-lg font-semibold mt-2 text-foreground group-hover:text-primary transition-colors line-clamp-3">
+                    {article.title}
+                  </h3>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
           <motion.div
-            className="bg-card/50 border border-border/50 rounded-2xl p-8 md:p-12 text-center"
+            className="mt-16 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="font-display text-2xl font-semibold mb-4 text-foreground">
-              Coming Soon
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              We're curating our press kit and media resources. Check back soon for updates.
-            </p>
             <p className="text-sm text-muted-foreground">
               For media inquiries, contact us at{' '}
               <a 

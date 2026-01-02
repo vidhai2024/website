@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Home, Lightbulb, Rocket, Users, Menu, X } from 'lucide-react';
+import { Home, Rocket, Users, Newspaper, Menu, X } from 'lucide-react';
 import vidhaiLogo from '@/assets/vidhai-logo.png';
 
 const navItems = [
   { label: 'Home', href: '/', icon: Home, isRoute: true },
-  { label: 'Vision', href: '/#vision', icon: Lightbulb, isRoute: false },
   { label: 'Programs', href: '/#technology', icon: Rocket, isRoute: false },
   { label: 'Team', href: '/team', icon: Users, isRoute: true },
+  { label: 'Press', href: '/press', icon: Newspaper, isRoute: true },
 ];
 
 const Navbar = () => {
