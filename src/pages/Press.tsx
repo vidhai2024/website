@@ -6,6 +6,7 @@ import ssvmImg from '@/assets/press/ssvm-institute.jpg';
 import forbesImg from '@/assets/press/forbes100-vidhai.jpg';
 import ametImg from '@/assets/press/amet.jpg';
 import simatsImg from '@/assets/press/simats.jpg';
+import cohortImg from '@/assets/press/cohort.png';
 
 const pressArticles = [
   {
@@ -21,6 +22,13 @@ const pressArticles = [
     link: "https://www.facebook.com/ssvminstitutions2324/posts/trailblazing-tomorrow-igniting-the-spark-of-student-startups-at-ssvma-captivatin/1440066524788634/",
     source: "SSVM Institute",
     date: "Oct 10, 2025"
+  },
+  {
+    title: "We have successfully launched the Vidhai-Vaanam Accelerator Program! A heartfelt thank you to our incredible mentors, visionary startup founders, and passionate ecosystem enablers.",
+    image: cohortImg,
+    link: "https://www.linkedin.com/posts/vidhai-llp_launch-highlights-activity-7366017448745058305-1xW6?utm_source=share&utm_medium=member_desktop&rcm=ACoAABRMAJEBdkApQrQ5Bk43Dg5UoPUpQXcgBY8",
+    source: "LinkedIn",
+    date: "Aug 25, 2025"
   },
   {
     title: "We have officially signed an MoU with Amet University Chennai Incubation Cell — a significant step towards fostering innovation, entrepreneurship, and industry-academia collaboration.",
