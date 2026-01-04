@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -97,16 +98,18 @@ const Hero = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <Button variant="hero" size="xl" className="group">
-            <span>Apply for Funding</span>
-            <motion.div
-              className="ml-2"
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              →
-            </motion.div>
-          </Button>
+          <Link to="/apply">
+            <Button variant="hero" size="xl" className="group">
+              <span>Apply for Funding</span>
+              <motion.div
+                className="ml-2"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </motion.div>
+            </Button>
+          </Link>
           
           <Button variant="heroOutline" size="xl">
             Learn About Vidhai
