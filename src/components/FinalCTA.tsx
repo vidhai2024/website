@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Mail, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FinalCTA = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -80,24 +81,26 @@ const FinalCTA = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <Button 
-              variant="hero" 
-              size="xl"
-              className="group pulse-glow"
+          <Link to="/apply">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <span>Apply Now</span>
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              <Button 
+                variant="hero" 
+                size="xl"
+                className="group pulse-glow"
               >
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </motion.div>
-            </Button>
-          </motion.div>
+                <span>Apply Now</span>
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </motion.div>
+              </Button>
+            </motion.div>
+          </Link>
 
           <motion.div
             whileHover={{ scale: 1.02 }}
