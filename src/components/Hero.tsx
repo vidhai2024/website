@@ -111,9 +111,11 @@ const Hero = () => {
             </Button>
           </Link>
           
-          <Button variant="heroOutline" size="xl">
-            Learn About Vidhai
-          </Button>
+          <a href="#vision">
+            <Button variant="heroOutline" size="xl">
+              Learn About Vidhai
+            </Button>
+          </a>
         </motion.div>
 
         {/* Stats */}
