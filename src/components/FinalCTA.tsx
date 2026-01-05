@@ -91,7 +91,7 @@ const FinalCTA = () => {
                 size="xl"
                 className="group pulse-glow"
               >
-                <span>Apply Now</span>
+                <span>Pitch to Us</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
