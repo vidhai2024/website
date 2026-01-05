@@ -118,31 +118,33 @@ const Navbar = () => {
           </div>
 
           {/* Desktop CTA Button */}
-          <motion.button
-            className="hidden md:block relative px-6 py-2.5 rounded-xl font-medium text-sm overflow-hidden group"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-primary to-accent"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              style={{ backgroundSize: '200% 200%' }}
-            />
-            <span className="relative z-10 text-primary-foreground">Apply Now</span>
-            <motion.div
-              className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            />
-          </motion.button>
+          <Link to="/apply">
+            <motion.button
+              className="hidden md:block relative px-6 py-2.5 rounded-xl font-medium text-sm overflow-hidden group"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-primary to-accent"
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                style={{ backgroundSize: '200% 200%' }}
+              />
+              <span className="relative z-10 text-primary-foreground">Apply Now</span>
+              <motion.div
+                className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+            </motion.button>
+          </Link>
 
           {/* Mobile Menu Toggle */}
           <motion.button
@@ -189,17 +191,18 @@ const Navbar = () => {
                   </motion.div>
                 );
               })}
-              <motion.button
-                className="mt-8 px-8 py-4 rounded-xl font-medium text-lg bg-primary text-primary-foreground"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: 0.5 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Apply for Funding
-              </motion.button>
+              <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
+                <motion.button
+                  className="mt-8 px-8 py-4 rounded-xl font-medium text-lg bg-primary text-primary-foreground"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: 0.5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Apply for Funding
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         )}

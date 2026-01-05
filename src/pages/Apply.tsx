@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowLeft, ArrowRight, Check, Loader2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 type FormData = {
   founderName: string;
@@ -89,6 +89,7 @@ const questions: Question[] = [
 ];
 
 const Apply = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -154,7 +155,7 @@ const Apply = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE', // Replace with your Web3Forms access key
+          access_key: '0bd4da41-171d-49da-b587-c3a131d7e608',
           subject: `New Application: ${formData.companyName}`,
           from_name: formData.founderName,
           // Founders & Company
@@ -249,9 +250,12 @@ const Apply = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6">
         <div className="flex items-center justify-between max-w-4xl mx-auto">
-          <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+          <button 
+            onClick={() => navigate(-1)} 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             <ArrowLeft className="w-5 h-5" />
-          </Link>
+          </button>
           <span className="text-sm text-muted-foreground">
             Question {currentStep + 1} of {totalSteps}
           </span>

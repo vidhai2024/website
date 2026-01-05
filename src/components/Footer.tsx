@@ -55,6 +55,7 @@ const Footer = () => {
                   <Link 
                     to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   >
                     {link.label}
                   </Link>
