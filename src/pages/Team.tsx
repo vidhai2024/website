@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 // Import team images
 import sameerImg from '@/assets/team/sameer-bharat-ram.avif';
-import hariharanImg from '@/assets/team/hariharan-vedamurthy.avif';
+import hariharanImg from '@/assets/team/hariharan-vedamurthy.jpg';
 import sabarisanImg from '@/assets/team/sabarisan-vedamurthy.avif';
 import arunNandaImg from '@/assets/team/chevalier-arun-nanda.avif';
 import raviMariwalaImg from '@/assets/team/ravi-mariwala.avif';
