@@ -16,7 +16,7 @@ const Vision = () => {
   const words = visionText.split(' ');
 
   return (
-    <section id="vision" ref={sectionRef} className="relative py-32 md:py-48 overflow-hidden">
+    <section id="vision" ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">
       {/* Calm background gradient */}
       <motion.div
         className="absolute inset-0"
@@ -90,7 +90,7 @@ const Vision = () => {
 
         {/* Investment Strategy */}
         <motion.div
-          className="mt-16 grid md:grid-cols-3 gap-12"
+          className="mt-10 grid md:grid-cols-3 gap-8"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1.2, duration: 0.8 }}
@@ -98,7 +98,7 @@ const Vision = () => {
           <div>
             <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Early-Stage Focus</h3>
             <p className="text-muted-foreground leading-relaxed">
-              We invest at the earliest stages, where the need for structured support is highest 
+              We invest at the earliest stages where the need for structured support is highest 
               and the potential for outsized impact and returns is greatest.
             </p>
           </div>
@@ -106,7 +106,7 @@ const Vision = () => {
             <h3 className="font-display text-xl font-semibold mb-4 text-foreground">Founder-First Philosophy</h3>
             <p className="text-muted-foreground leading-relaxed">
               Great founders build great companies. We prioritize teams with grit, clarity of vision, 
-              and strong execution capabilities—often over product maturity.
+              and strong execution capabilities. Often over product maturity.
             </p>
           </div>
           <div>
@@ -120,7 +120,7 @@ const Vision = () => {
 
         {/* Impact Statement */}
         <motion.div
-          className="mt-20 text-center"
+          className="mt-12 text-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 1.5 }}

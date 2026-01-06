@@ -83,7 +83,7 @@ const TechnologyStack = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section id="technology" ref={sectionRef} className="relative py-16 md:py-32 overflow-hidden pb-24 md:pb-32">
+    <section id="technology" ref={sectionRef} className="relative py-12 md:py-20 overflow-hidden pb-16 md:pb-20">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -242,7 +242,7 @@ const TechnologyStack = () => {
 
         {/* Bottom Note */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-10 text-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}

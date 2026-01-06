@@ -28,7 +28,7 @@ const Footer = () => {
               <img src={vidhaiLogo} alt="Vidhai" className="h-8 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed mb-6">
-              Seeding young entrepreneurs & disruptive ideas. Empowering early-stage innovators to build scalable ventures.
+              Seeding young entrepreneurs and disruptive ideas. Empowering early-stage innovators to build scalable ventures.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">

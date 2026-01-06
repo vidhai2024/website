@@ -9,7 +9,7 @@ const FinalCTA = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-32 overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-16 md:py-24 overflow-hidden">
       {/* Intensified background glow */}
       <motion.div
         className="absolute inset-0"
@@ -65,13 +65,13 @@ const FinalCTA = () => {
 
         {/* Description */}
         <motion.p
-          className="max-w-2xl mx-auto text-lg text-muted-foreground mb-12"
+          className="max-w-2xl mx-auto text-lg text-muted-foreground mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          We're looking for passionate founders with bold ideas and the determination 
-          to turn them into scalable ventures. Let's build the future together.
+          We are looking for passionate founders with bold ideas and the determination 
+          to turn them into scalable ventures. Let us build the future together.
         </motion.p>
 
         {/* CTA Buttons */}

@@ -15,8 +15,8 @@ const Hero = () => {
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
-  const headlineWords = "Seeding young entrepreneurs & disruptive ideas".split(' ');
-  const subheadline = "We explore, identify, and support founders building ideas that truly matter—driven by passion, purpose, and those defining 'Aha!' moments. Vidhai exists to empower early-stage innovators with the right ecosystem to turn bold ideas into scalable ventures.";
+  const headlineWords = "Seeding young entrepreneurs and disruptive ideas".split(' ');
+  const subheadline = "We explore, identify, and support founders building ideas that truly matter. Driven by passion, purpose, and those defining 'Aha!' moments. Vidhai exists to empower early-stage innovators with the right ecosystem to turn bold ideas into scalable ventures.";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -100,7 +100,7 @@ const Hero = () => {
         >
           <Link to="/apply">
             <Button variant="hero" size="xl" className="group">
-              <span>Apply for Funding</span>
+              <span>Get Accelerated with Vidhai</span>
               <motion.div
                 className="ml-2"
                 animate={{ x: [0, 5, 0] }}
@@ -110,12 +110,6 @@ const Hero = () => {
               </motion.div>
             </Button>
           </Link>
-          
-          <a href="#vision">
-            <Button variant="heroOutline" size="xl">
-              Learn About Vidhai
-            </Button>
-          </a>
         </motion.div>
 
         {/* Stats */}
