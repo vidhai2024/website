@@ -6,13 +6,13 @@ const whyVidhai = [
   {
     icon: Target,
     title: 'Identify What Matters',
-    description: 'We explore and identify founders and their ideas that matter—not just in outcome, but in spirit. Every meaningful startup begins with a moment of insight.',
+    description: 'We explore and identify founders and their ideas that matter. Not just in outcome, but in spirit. Every meaningful startup begins with a moment of insight.',
     shortDesc: 'Finding founders with vision and conviction.',
   },
   {
     icon: Lightbulb,
     title: 'Deep Conviction',
-    description: 'We believe in backing teams with grit, clarity of vision, and strong execution capabilities—often over product maturity or early metrics.',
+    description: 'We believe in backing teams with grit, clarity of vision, and strong execution capabilities. Often over product maturity or early metrics.',
     shortDesc: 'Backing grit over early metrics.',
   },
   {
@@ -28,19 +28,19 @@ const whatWeDo = [
     icon: Users,
     title: 'Founder Enablement',
     description: 'Product sessions, workshops, and structured training programs with one-on-one and group mentorship from experienced founders.',
-    shortDesc: 'Workshops & expert mentorship.',
+    shortDesc: 'Workshops and expert mentorship.',
   },
   {
     icon: TrendingUp,
-    title: 'Growth & Investor Readiness',
+    title: 'Growth and Investor Readiness',
     description: 'Pitch practice, storytelling refinement, direct investor access, cloud credits, and startup tooling support.',
-    shortDesc: 'Pitch prep & investor access.',
+    shortDesc: 'Pitch prep and investor access.',
   },
   {
     icon: Handshake,
-    title: 'Ecosystem & Capital',
+    title: 'Ecosystem and Capital',
     description: 'Follow-on funding support, industry collaborations, hackathons, innovation sprints, and co-founder matching.',
-    shortDesc: 'Funding & partnerships.',
+    shortDesc: 'Funding and partnerships.',
   },
 ];
 
@@ -49,14 +49,14 @@ const ProblemSolution = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-32 overflow-hidden pb-24 md:pb-32">
+    <section ref={sectionRef} className="relative py-12 md:py-20 overflow-hidden pb-16 md:pb-20">
       {/* Section transition gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Why Vidhai Section */}
         <motion.div
-          className="mb-16 md:mb-24"
+          className="mb-12 md:mb-16"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
@@ -72,7 +72,7 @@ const ProblemSolution = () => {
               Building with Clarity
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground text-sm md:text-lg hidden md:block">
-              At Vidhai, we don't just accelerate startups—we help founders build with clarity, confidence, and long-term vision.
+              At Vidhai, we do not just accelerate startups. We help founders build with clarity, confidence, and long-term vision.
             </p>
           </motion.div>
 
@@ -116,7 +116,7 @@ const ProblemSolution = () => {
 
         {/* Visual Separator - Hidden on mobile */}
         <motion.div
-          className="relative h-16 md:h-32 hidden md:flex items-center justify-center mb-16 md:mb-24"
+          className="relative h-12 md:h-20 hidden md:flex items-center justify-center mb-12 md:mb-16"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}

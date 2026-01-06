@@ -3,7 +3,8 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import ParticleBackground from '@/components/ParticleBackground';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import PartnersParallax from '@/components/PartnersParallax';
+import EcosystemPartners from '@/components/EcosystemPartners';
+import PortfolioCompanies from '@/components/PortfolioCompanies';
 import ProblemSolution from '@/components/ProblemSolution';
 import TechnologyStack from '@/components/TechnologyStack';
 import Vision from '@/components/Vision';
@@ -45,8 +46,11 @@ const Index = () => {
         {/* Hero Section */}
         <Hero />
 
-        {/* Partners Horizontal Parallax */}
-        <PartnersParallax />
+        {/* Portfolio Companies */}
+        <PortfolioCompanies />
+
+        {/* Ecosystem Partners */}
+        <EcosystemPartners />
 
         {/* Why Vidhai & What We Do */}
         <ProblemSolution />

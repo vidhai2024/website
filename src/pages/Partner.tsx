@@ -117,7 +117,7 @@ const Partner = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: '0bd4da41-171d-49da-b587-c3a131d7e608',
+          access_key: '91cdfb1f-8cb1-4439-9ad0-0eab089e1027',
           subject: `Partner Inquiry from ${formData.fullName}`,
           from_name: 'Vidhai Partner Form',
           ...formData,
