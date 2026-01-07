@@ -6,7 +6,6 @@ import Hero from '@/components/Hero';
 import EcosystemPartners from '@/components/EcosystemPartners';
 import PortfolioCompanies from '@/components/PortfolioCompanies';
 import ProblemSolution from '@/components/ProblemSolution';
-import TechnologyStack from '@/components/TechnologyStack';
 import Vision from '@/components/Vision';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
@@ -46,6 +45,9 @@ const Index = () => {
         {/* Hero Section */}
         <Hero />
 
+        {/* Vision & Investment Strategy - Our Belief */}
+        <Vision />
+
         {/* Portfolio Companies */}
         <PortfolioCompanies />
 
@@ -54,12 +56,6 @@ const Index = () => {
 
         {/* Why Vidhai & What We Do */}
         <ProblemSolution />
-
-        {/* Programs / Offerings */}
-        <TechnologyStack />
-
-        {/* Vision & Investment Strategy */}
-        <Vision />
 
         {/* Final CTA */}
         <FinalCTA />

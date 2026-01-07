@@ -116,11 +116,8 @@ const PortfolioCompanies = () => {
   const handleMouseEnter = (startup: StartupInfo, e: React.MouseEvent) => {
     setIsPaused(true);
     setHoveredStartup(startup);
-    setMousePosition({ x: e.clientX, y: e.clientY });
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    setMousePosition({ x: rect.left + rect.width / 2, y: rect.top });
   };
 
   const handleMouseLeave = () => {
@@ -164,7 +161,6 @@ const PortfolioCompanies = () => {
               key={`${startup.brandName}-${index}`}
               className="flex-shrink-0 relative cursor-pointer"
               onMouseEnter={(e) => handleMouseEnter(startup, e)}
-              onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               whileHover={{ scale: 1.05 }}
             >
@@ -193,7 +189,7 @@ const PortfolioCompanies = () => {
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* Hover Popup */}
+      {/* Hover Popup - Fixed position above the logo */}
       <AnimatePresence>
         {hoveredStartup && (
           <motion.div
@@ -201,40 +197,42 @@ const PortfolioCompanies = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 10 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed z-50 pointer-events-none"
+            className="fixed z-50"
             style={{
-              left: mousePosition.x + 20,
-              top: mousePosition.y - 20,
-              transform: 'translateY(-100%)',
+              left: mousePosition.x,
+              top: mousePosition.y - 16,
+              transform: 'translate(-50%, -100%)',
             }}
           >
-            <div className="w-72 md:w-80 p-4 md:p-5 rounded-xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-2xl">
+            <div className="w-80 md:w-96 p-5 rounded-xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-2xl">
               {/* Glass effect */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent" />
               
               <div className="relative z-10">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h4 className="font-display text-lg font-semibold text-foreground">
-                      {hoveredStartup.brandName}
-                    </h4>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      Est. {hoveredStartup.foundedYear}
-                    </p>
+                <div className="mb-3">
+                  <h4 className="font-display text-lg font-semibold text-foreground">
+                    {hoveredStartup.brandName}
+                  </h4>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {hoveredStartup.legalName}
+                  </p>
+                </div>
+
+                {/* Details */}
+                <div className="space-y-2 mb-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="text-muted-foreground">Founded:</span>
+                    <span className="text-foreground">{hoveredStartup.foundedYear}</span>
                   </div>
-                  <a
-                    href={hoveredStartup.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors pointer-events-auto"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                  <div className="flex items-start gap-2 text-sm">
+                    <span className="text-muted-foreground">Founders:</span>
+                    <span className="text-foreground">{hoveredStartup.founders}</span>
+                  </div>
                 </div>
 
                 {/* Brief */}
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   {hoveredStartup.brief}
                 </p>
 
@@ -243,10 +241,10 @@ const PortfolioCompanies = () => {
                   href={hoveredStartup.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 mt-3 text-xs text-primary hover:underline underline-offset-2 pointer-events-auto"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium"
                 >
                   Visit Website
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
             </div>

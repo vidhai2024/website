@@ -13,6 +13,7 @@ type FormData = {
   companyName: string;
   country: string;
   website: string;
+  pitchdeckLink: string;
   problem: string;
   solution: string;
   customer: string;
@@ -32,6 +33,7 @@ const initialFormData: FormData = {
   companyName: '',
   country: '',
   website: '',
+  pitchdeckLink: '',
   problem: '',
   solution: '',
   customer: '',
@@ -63,6 +65,7 @@ const questions: Question[] = [
   { id: 'companyName', label: 'What is your company name?', placeholder: 'Company name', type: 'text', required: true, section: 'Founders & Company' },
   { id: 'country', label: 'Where is your company based?', placeholder: 'Country / Region', type: 'text', required: true, section: 'Founders & Company' },
   { id: 'website', label: 'Do you have a website?', placeholder: 'https://yourcompany.com (optional)', type: 'text', required: false, section: 'Founders & Company' },
+  { id: 'pitchdeckLink', label: 'Please provide your pitchdeck link with open access', placeholder: 'https://drive.google.com/... or https://docsend.com/...', type: 'text', required: true, section: 'Founders & Company' },
   
   // PROBLEM & SOLUTION
   { id: 'problem', label: 'In one sentence, what problem are you solving?', placeholder: 'Describe the core problem...', type: 'text', required: true, maxLength: 200, section: 'Problem & Solution' },
@@ -164,6 +167,7 @@ const Apply = () => {
           'Company Name': formData.companyName,
           'Country': formData.country,
           'Website': formData.website || 'Not provided',
+          'Pitchdeck Link': formData.pitchdeckLink,
           // Problem & Solution
           'Problem': formData.problem,
           'Solution': formData.solution,

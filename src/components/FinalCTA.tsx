@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail, Calendar } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const FinalCTA = () => {
@@ -102,15 +102,6 @@ const FinalCTA = () => {
             </motion.div>
           </Link>
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Button variant="heroOutline" size="xl" className="gap-2">
-              <Calendar className="w-5 h-5" />
-              <span>Schedule a Call</span>
-            </Button>
-          </motion.div>
         </motion.div>
 
         {/* Contact Email */}
