@@ -73,10 +73,12 @@ const PortfolioCompanies = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredStartup, setHoveredStartup] = useState<StartupInfo | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+  const [isHoveringPopup, setIsHoveringPopup] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>();
   const scrollPositionRef = useRef(0);
+  const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -91,10 +93,10 @@ const PortfolioCompanies = () => {
     if (!scrollContainer) return;
 
     const totalWidth = scrollContainer.scrollWidth / 2;
-    const speed = 0.5; // pixels per frame
+    const speed = 0.5;
 
     const animate = () => {
-      if (!isPaused) {
+      if (!isPaused && !isHoveringPopup) {
         scrollPositionRef.current += speed;
         if (scrollPositionRef.current >= totalWidth) {
           scrollPositionRef.current = 0;
@@ -111,16 +113,38 @@ const PortfolioCompanies = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isPaused]);
+  }, [isPaused, isHoveringPopup]);
 
   const handleMouseEnter = (startup: StartupInfo, e: React.MouseEvent) => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
     setIsPaused(true);
     setHoveredStartup(startup);
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    setMousePosition({ x: rect.left + rect.width / 2, y: rect.top });
+    setPopupPosition({ x: rect.left + rect.width / 2, y: rect.top });
   };
 
   const handleMouseLeave = () => {
+    hideTimeoutRef.current = setTimeout(() => {
+      if (!isHoveringPopup) {
+        setIsPaused(false);
+        setHoveredStartup(null);
+      }
+    }, 150);
+  };
+
+  const handlePopupMouseEnter = () => {
+    if (hideTimeoutRef.current) {
+      clearTimeout(hideTimeoutRef.current);
+      hideTimeoutRef.current = null;
+    }
+    setIsHoveringPopup(true);
+  };
+
+  const handlePopupMouseLeave = () => {
+    setIsHoveringPopup(false);
     setIsPaused(false);
     setHoveredStartup(null);
   };
@@ -199,10 +223,12 @@ const PortfolioCompanies = () => {
             transition={{ duration: 0.2, ease: 'easeOut' }}
             className="fixed z-50"
             style={{
-              left: mousePosition.x,
-              top: mousePosition.y - 16,
+              left: popupPosition.x,
+              top: popupPosition.y - 16,
               transform: 'translate(-50%, -100%)',
             }}
+            onMouseEnter={handlePopupMouseEnter}
+            onMouseLeave={handlePopupMouseLeave}
           >
             <div className="w-80 md:w-96 p-5 rounded-xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-2xl">
               {/* Glass effect */}
