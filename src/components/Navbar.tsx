@@ -100,7 +100,7 @@ const Navbar = () => {
                       isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    <span className="relative z-10">{item.label}</span>
+                    {item.label}
                     <motion.div
                       className="absolute inset-0 rounded-lg bg-secondary/50 opacity-0"
                       whileHover={{ opacity: 1 }}
@@ -108,8 +108,7 @@ const Navbar = () => {
                     />
                     {isActive && (
                       <motion.div
-                        className="absolute -bottom-0.5 left-1/2 h-0.5 bg-primary -translate-x-1/2"
-                        style={{ width: 'calc(100% - 16px)' }}
+                        className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary"
                         layoutId="activeNav"
                       />
                     )}
