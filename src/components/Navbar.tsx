@@ -7,7 +7,7 @@ import vidhaiLogo from '@/assets/vidhai-logo.png';
 
 const navItems = [
   { label: 'Home', href: '/', icon: Home, isRoute: true },
-  { label: 'Programs', href: '/#technology', icon: Rocket, isRoute: false },
+  { label: 'Programs', href: '/programs', icon: Rocket, isRoute: true },
   { label: 'Team', href: '/team', icon: Users, isRoute: true },
   { label: 'Press', href: '/press', icon: Newspaper, isRoute: true },
   { label: 'Partner', href: '/partner', icon: Handshake, isRoute: true },
@@ -108,7 +108,8 @@ const Navbar = () => {
                     />
                     {isActive && (
                       <motion.div
-                        className="absolute bottom-1 left-1/2 h-px bg-primary w-[60%] -translate-x-1/2"
+                        className="absolute -bottom-0.5 left-1/2 h-0.5 bg-primary -translate-x-1/2"
+                        style={{ width: 'calc(100% - 16px)' }}
                         layoutId="activeNav"
                       />
                     )}
