@@ -23,6 +23,8 @@ const partnerLogos = [
   { name: 'Startup TN', logo: '/ecosystem/startup-tn.png' },
   { name: 'Utpata Ventures', logo: '/ecosystem/utpata-ventures.png' },
   { name: 'Venture Catalysts', logo: '/ecosystem/venture-catalysts.png' },
+  { name: 'Warmup Ventures', logo: '/ecosystem/warmup-ventures.png' },
+  { name: 'WEH Ventures', logo: '/ecosystem/weh-ventures.png' },
 ];
 
 const EcosystemPartners = () => {
@@ -53,18 +55,22 @@ const EcosystemPartners = () => {
       const totalWidth1 = scroll1.scrollWidth / 2;
       const totalWidth2 = scroll2.scrollWidth / 2;
 
+      // First row moves right to left (negative direction)
       scrollPosition1Ref.current += speed1;
-      scrollPosition2Ref.current -= speed2;
+      // Second row moves left to right (positive direction)
+      scrollPosition2Ref.current += speed2;
 
       if (scrollPosition1Ref.current >= totalWidth1) {
         scrollPosition1Ref.current = 0;
       }
-      if (scrollPosition2Ref.current <= -totalWidth2) {
+      if (scrollPosition2Ref.current >= totalWidth2) {
         scrollPosition2Ref.current = 0;
       }
 
+      // First row: right to left
       scroll1.style.transform = `translateX(-${scrollPosition1Ref.current}px)`;
-      scroll2.style.transform = `translateX(${scrollPosition2Ref.current}px)`;
+      // Second row: left to right (start from negative position)
+      scroll2.style.transform = `translateX(-${totalWidth2 - scrollPosition2Ref.current}px)`;
 
       animationRef.current = requestAnimationFrame(animate);
     };

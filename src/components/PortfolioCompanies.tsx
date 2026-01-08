@@ -183,7 +183,7 @@ const PortfolioCompanies = () => {
           {duplicatedStartups.map((startup, index) => (
             <motion.div
               key={`${startup.brandName}-${index}`}
-              className="flex-shrink-0 relative cursor-pointer h-12 md:h-16 flex items-center justify-center"
+              className="flex-shrink-0 relative cursor-pointer h-16 md:h-24 flex items-center justify-center"
               onMouseEnter={(e) => handleMouseEnter(startup, e)}
               onMouseLeave={handleMouseLeave}
               whileHover={{ scale: 1.1 }}
@@ -191,7 +191,7 @@ const PortfolioCompanies = () => {
               <img
                 src={startup.logo}
                 alt={startup.brandName}
-                className="h-full w-auto object-contain filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="h-full w-auto object-contain transition-all duration-300"
                 loading="lazy"
               />
             </motion.div>
