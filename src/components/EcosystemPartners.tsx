@@ -1,16 +1,18 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-// Ecosystem partner logos - placeholder paths for now
+// Ecosystem partner logos
 const partnerLogos = [
-  { name: 'Partner 1', logo: '/ecosystem/partner-1.png' },
-  { name: 'Partner 2', logo: '/ecosystem/partner-2.png' },
-  { name: 'Partner 3', logo: '/ecosystem/partner-3.png' },
-  { name: 'Partner 4', logo: '/ecosystem/partner-4.png' },
-  { name: 'Partner 5', logo: '/ecosystem/partner-5.png' },
-  { name: 'Partner 6', logo: '/ecosystem/partner-6.png' },
-  { name: 'Partner 7', logo: '/ecosystem/partner-7.png' },
-  { name: 'Partner 8', logo: '/ecosystem/partner-8.png' },
+  { name: '888VC', logo: '/ecosystem/888vc.png' },
+  { name: 'AWS', logo: '/ecosystem/aws.png' },
+  { name: 'EarlySeed Ventures', logo: '/ecosystem/earlyseed-ventures.png' },
+  { name: 'Faad Capital', logo: '/ecosystem/faad-capital.png' },
+  { name: 'Google for Startups', logo: '/ecosystem/google-for-startups.png' },
+  { name: 'IAAA', logo: '/ecosystem/iaaa.png' },
+  { name: 'Indian Angel Network', logo: '/ecosystem/ian.png' },
+  { name: 'IIM Calcutta', logo: '/ecosystem/iim-calcutta.png' },
+  { name: 'IPV', logo: '/ecosystem/ipv.png' },
+  { name: 'IVB', logo: '/ecosystem/ivb.png' },
 ];
 
 const EcosystemPartners = () => {
@@ -92,31 +94,23 @@ const EcosystemPartners = () => {
       </motion.div>
 
       {/* First Row - moves left */}
-      <div className="relative overflow-hidden mb-4 md:mb-6">
+      <div className="relative overflow-hidden mb-6 md:mb-8">
         <div
           ref={scrollRef1}
-          className="flex gap-4 md:gap-8 will-change-transform"
+          className="flex items-center gap-12 md:gap-20 will-change-transform"
           style={{ width: 'max-content' }}
         >
           {duplicatedLogos.map((partner, index) => (
             <motion.div
               key={`row1-${index}`}
-              className="flex-shrink-0 w-24 h-12 md:w-36 md:h-16 rounded-lg md:rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors duration-300 flex items-center justify-center p-3 md:p-4"
-              whileHover={{ scale: 1.05, y: -3 }}
+              className="flex-shrink-0 h-10 md:h-14 flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                className="h-full w-auto object-contain filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
                 loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = `<span class="text-xs md:text-sm font-medium text-foreground/70">${partner.name}</span>`;
-                  }
-                }}
               />
             </motion.div>
           ))}
@@ -127,28 +121,20 @@ const EcosystemPartners = () => {
       <div className="relative overflow-hidden">
         <div
           ref={scrollRef2}
-          className="flex gap-4 md:gap-8 will-change-transform"
+          className="flex items-center gap-12 md:gap-20 will-change-transform"
           style={{ width: 'max-content' }}
         >
           {reversedLogos.map((partner, index) => (
             <motion.div
               key={`row2-${index}`}
-              className="flex-shrink-0 w-24 h-12 md:w-36 md:h-16 rounded-lg md:rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors duration-300 flex items-center justify-center p-3 md:p-4"
-              whileHover={{ scale: 1.05, y: -3 }}
+              className="flex-shrink-0 h-10 md:h-14 flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                className="h-full w-auto object-contain filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
                 loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = `<span class="text-xs md:text-sm font-medium text-foreground/70">${partner.name}</span>`;
-                  }
-                }}
               />
             </motion.div>
           ))}
