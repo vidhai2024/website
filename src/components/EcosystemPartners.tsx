@@ -13,6 +13,16 @@ const partnerLogos = [
   { name: 'IIM Calcutta', logo: '/ecosystem/iim-calcutta.png' },
   { name: 'IPV', logo: '/ecosystem/ipv.png' },
   { name: 'IVB', logo: '/ecosystem/ivb.png' },
+  { name: 'Maker Bhavan Foundation', logo: '/ecosystem/maker-bhavan-foundation.png' },
+  { name: 'Microsoft for Startups', logo: '/ecosystem/microsoft-for-startups.png' },
+  { name: 'Nasscom', logo: '/ecosystem/nasscom.png' },
+  { name: 'O2 Angels Network', logo: '/ecosystem/o2-angels.png' },
+  { name: 'Realtime', logo: '/ecosystem/realtime.png' },
+  { name: 'River Venture Studio', logo: '/ecosystem/river-venture-studio.png' },
+  { name: 'Soonicorn Ventures', logo: '/ecosystem/soonicorn-ventures.png' },
+  { name: 'Startup TN', logo: '/ecosystem/startup-tn.png' },
+  { name: 'Utpata Ventures', logo: '/ecosystem/utpata-ventures.png' },
+  { name: 'Venture Catalysts', logo: '/ecosystem/venture-catalysts.png' },
 ];
 
 const EcosystemPartners = () => {

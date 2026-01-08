@@ -183,27 +183,17 @@ const PortfolioCompanies = () => {
           {duplicatedStartups.map((startup, index) => (
             <motion.div
               key={`${startup.brandName}-${index}`}
-              className="flex-shrink-0 relative cursor-pointer"
+              className="flex-shrink-0 relative cursor-pointer h-12 md:h-16 flex items-center justify-center"
               onMouseEnter={(e) => handleMouseEnter(startup, e)}
               onMouseLeave={handleMouseLeave}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
             >
-              <div className="w-28 h-16 md:w-40 md:h-24 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 flex items-center justify-center p-4 backdrop-blur-sm">
-                <img
-                  src={startup.logo}
-                  alt={startup.brandName}
-                  className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      parent.innerHTML = `<span class="text-sm md:text-base font-semibold text-foreground/80">${startup.brandName}</span>`;
-                    }
-                  }}
-                />
-              </div>
+              <img
+                src={startup.logo}
+                alt={startup.brandName}
+                className="h-full w-auto object-contain filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+              />
             </motion.div>
           ))}
         </div>
