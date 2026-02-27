@@ -98,9 +98,9 @@ const Hero = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <Link to="/apply">
+          <Link to="/programs">
             <Button variant="hero" size="xl" className="group">
-              <span>Get Accelerated with Vidhai</span>
+              <span>Cohort 2 Applications Live Now</span>
               <motion.div
                 className="ml-2"
                 animate={{ x: [0, 5, 0] }}

@@ -116,6 +116,39 @@ const TechnologyStack = () => {
           <p className="max-w-2xl mx-auto text-muted-foreground text-sm md:text-lg hidden md:block">
             Comprehensive programs designed to help startups validate ideas, strengthen execution, and prepare for growth.
           </p>
+
+          {/* Cohort 2 CTA */}
+          <motion.div
+            className="mt-8 md:mt-10 max-w-2xl mx-auto rounded-2xl border border-primary/30 bg-primary/5 p-6 md:p-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
+              Cohort 2 Applications <span className="text-primary">Live Now</span>
+            </h3>
+            <p className="text-muted-foreground text-sm md:text-base mt-2 md:mt-3">
+              We're selecting a small group of high-potential startups to be part of our next accelerator. If you're ready to move fast, build strong, and scale smart — apply today.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5">
+              <a
+                href="https://forms.gle/GBrxPzrrmv5BzzYj6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-3 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+              >
+                Start Your Application
+              </a>
+              <a
+                href="https://spiky-viper-bcf.notion.site/Vidhai-Vaanam-Accelerator-Program-223934cede30802bbb67cba8f77a9467"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium border border-primary/50 bg-primary/5 text-foreground px-8 py-3 hover:bg-primary/10 hover:border-primary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              >
+                Program Details
+              </a>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Offerings Grid */}
